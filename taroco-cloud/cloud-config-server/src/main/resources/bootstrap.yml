@@ -1,0 +1,38 @@
+#git
+
+#spring:
+#  application:
+#    name: configserver
+#  cloud:
+#    config:
+#      enabled: true
+#      server:
+#        git:
+#          uri: http://git.oschina.net/WeeChang_Sc/jcloud-cqrs
+#          searchPaths: configserver/src/main/resources/conf
+#          #default-label: axon3-boot
+#          username: username
+#          password: password
+#      label: master
+#
+#security:
+#  user:
+#    password: password
+#
+#server:
+#  port: ${PORT:8888}
+
+#native
+spring:
+  profiles:
+    active: native
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/conf
+
+server:
+  port: ${PORT:8888}

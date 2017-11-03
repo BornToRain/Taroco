@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:8761}
+
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       
+      
+---
+
+spring:
+  profiles: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
